@@ -2,8 +2,8 @@ var task1 = document.querySelector('.task1');
 var task2 = document.querySelector('.task2');
 var task3 = document.querySelector('.task3');
 var task4 = document.querySelector('.task4');
-var task4_2 = document.querySelector('.task4_2');
-var task4_3 = document.querySelector('.task4_3');
+var task4_2 = document.querySelector('.task42');
+var task4_3 = document.querySelector('.task43');
 var task5 = document.querySelector('.task5');
 
 task1.addEventListener('click', function() {
