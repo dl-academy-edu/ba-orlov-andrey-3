@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="ru">
+<head> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <link rel="shortcut icon" href="favicon.ico">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="fonts/gilroy.css">
+  <title>Start</title>
+  <style>
+  
+.mo {background: blue; padding: 16px;position: fixed;display: none;
+top:50%;left: 50%;transform: translate(-50%, -50%);
+} 
+.fm {position: relative;/**/
+max-width:1000px; min-height: 75px; padding: 20px;
+}
+.closer {position:absolute; top:-13px; right:-55px;}
+
+#f2 {wi0dth: 333px;}/*register*/
+.fm:nth-child(3n) {background: teal;}
+.fm:nth-child(3n+1) {background: aqua;}
+.fm:nth-child(3n+2) {background: lime;}
+/*******/
+.fs {/*form static*/
+background: navy;
+}
+
+section { margin: 0 auto;
+max-width: 1000px;
+width: 100%;}
+
+.ant {display: flex; justify-content: start;}/*имя фронтендера*/
+h2 {justify-content: center; background: silver;text-align: center;}
+.say {background: yellow; border: 2px solid black;/*облачки разговора*/
+margin: 16px; width: 60%; position: relative;
+}
+.say::after {content: url(tail.svg);position: absolute;bottom: -29px;display: block;}
+.say:nth-child(2n)::after {right: 24px;}
+.say:nth-child(2n+1)::after {left: 24px;}
+
+.stack {display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;}/*изученые языки*/
+
+.note {color: white; background: rgba(0,0,0,.8); position: absolute; bottom:0;left:0;}/*прозрачная шторка на слайдер swiper*/
+
+/*******************/
+.invali {display: block; margin-top:.25rem; font-size:.825rem; color: #dc3545;}
+  </style>
+</head>  
+<body>
+
+<header class="header container">
+<a class="logo" href="./index.html">Home</a>
+<ul class="menu">
+<li class="nav"><a class="link" href="blog.html">My Blog </a></li>
+<li class="nav" tabindex=0 onclick="m1.style.display='block';overlay.classList.remove('show');">Sign in</li>
+<li class="nav" tabindex=0 onclick="m2.style.display='block';overlay.classList.remove('show');">Register</li>
+</ul>
+</header>
+
+
+<main>
+<section class="container ant">
+<div style="background: silver;"><h1>
+Antonina <br> Antoninovna
+</h1></div>
+<div style="background: olive; width: 200px; display: flex;
+  align-items: flex-end;">
+Future front-end develiper 23 yaers old, Tolyatti
+</div>
+</section>
+
+<section class="container">
+<div class="slider">
+	<div class="slider__wrapper">
+		<div class="slider__inner-wrapper">
+			<div class="slider__slide">
+			
+			<picture>			
+				<source srcset="portrait-mob.jpg, portrait-mob.jpg 2x" media="(max-width: 375px)">
+				<source srcset="portrait-tab.jpg, portrait-tab.jpg 2x" media="(max-width: 768px)">
+				<source srcset="portrait.jpg, portrait@2x.jpg 2x">
+				<img src="portrait.jpg" loading="lazy" alt="fallback" />
+			</picture>
+			
+			
+			
+			</div>
+			<div class="slider__slide">222</div>
+			<div class="slider__slide">3</div>
+			<div class="slider__slide">4</div>
+			
+		</div>
+	</div>
+	
+	<div class="slider__panel" style="display: flex; justify-content: space-between; background: #dfe;">
+	<button class="slider__button_back" style="border-radius: 50%;">
+	<img src="ar.svg" alt="" width=30px height=30px style="transform: rotate(180deg);">
+	</button>
+	<div class="slider__pagination"></div>
+	<button class="slider__button_next" style="border-radius: 50%;">
+	<img src="ar.svg" alt="" width=30px height=30px style="transform: rotate(0deg);">
+	</button>
+	</div>
+</div>
+</section>
+
+
+
+<section style="text-align:center;justify-content: center;display: flex; flex-direction: column; align-items: center">
+<h2>About me</h2>
+<div class="say">Aliquam tortor molestie turpis est tristique. Congue diam orci amet quis
+                    semper ut. Vitae aenean nibh facilisis urna, ultricies euismod nunc. Commodo fringilla sit hendrerit
+                    consequat. Vel ac elit vel sagittis.</div>
+<div class="say">Tincidunt id quis pellentesque rutrum pretium. Egestas aliquam dictum ipsum
+                    nisl, sed pulvinar. Commodo elit sed a fermentum non justo. Etiam platea consectetur.</div>
+<div class="say">Quam ipsum odio tellus etiam aliquam dolor ut hendrerit. Felis risus
+                    nec
+                    vitae nunc ultricies placerat. Nullam nec felis eu id dolor pellentesque tristique.</div>
+
+
+
+
+</section>
+
+
+
+<section><h2>Skills</h2>I work in such programs as
+<div class="stack">
+					<div><h3>HTML 5</h3>85%<img src="html.svg" alt=""></div>
+					<div><h3>CSS/SCSS</h3>55%<img src="css.svg" alt=""></div>
+					<div><h3>JavaScript</h3>5%<img src="js.svg" alt=""></div>
+					<div><h3>Git/GitHub</h3>15%<img src="git.svg" alt=""></div>					
+					<div><h3>Figma</h3>80%<img src="figma.svg" alt=""></div>
+</div>								
+</section>
+
+
+
+<section><h2>Portfolio</h2>
+<div style="background: violet; height: 314px; position: relative; overflow: hidden;">
+					<img src="m.jpg" alt="" width=1000px;>
+                    <div class="note">
+                        <h3 class="">Learning site for DL Academy courses</h3>
+                        <p class="">A simple multi-page static site. The design layout was
+                            in Figma.
+                            HTML
+                            and CSS were used. The site is responsive and cross-browser, but without adding
+                            interactivity
+                            via
+                            JavaScript.</p>
+                    </div>
+</div>					
+</section>
+
+</main>
+
+
+<!-- кнопка вверх-->
+<div class="button-to-top_js" id="button-to-top_js"
+style="width:100px; height:100px; background: rgba(0, 127, 0, .2);border-radius: 50%;
+cursor: pointer; display: none;
+position: fixed; bottom:0; right: 0;" onclick="window.scrollTo({top: 0, behavior: 'smooth',})">
+<img src="ar.svg" alt="" width=100px height=100px style="transform: rotate(-90deg);">
+</div>
+<script>
+const button = document.querySelector('.button-to-top_js');
+window.addEventListener('scroll', () => {
+button.style.display=(window.pageYOffset > 100)?'block':'none';
+});
+</script>
+<!-- кнопка вверх-->
+
+
+<footer class="container2">
+<div class="">
+<center><h2>Contacts</h2>
+<p style="text-align: center;background: #def;">Want to know more or just chat? You are welcome!</p>
+<div style="background: lime; text-align: center;">
+<button class="bt1" type="button" onclick="m3.style.display='block';overlay.classList.remove('show');">Send message</button>
+</div>
+<div style="background: lime;padding: 0 50px;">
+<button class="bt1" type="button">Instagram</button>
+<button class="bt1" type="button">Vk</button>
+<button class="bt1" type="button">Telegram</button>
+<button class="bt1" type="button">Mail</button>
+<button class="bt1" type="button">GitHub</button>
+<button class="bt1" type="button">Phone</button>
+</div>
+</div>
+        Design by <a>DL Academy</a>
+        Program code from Antonina
+</footer>
+
+<div class="overlay show" id="overlay"></div>
+<div class="mo" id="m1">
+<form  class="fm" id="f1" name="lform">
+sign in
+				<fieldset class="" style="display: flex;flex-direction: column">
+					<label class="rqr" for="l1">Email</label>
+					<input type="text" id="l1" name="email">
+				</fieldset>
+				<fieldset class="" style="display: flex;flex-direction: column">
+					<label class="rqr" for="l2">Password</label>
+					<input type="password" id="l2" name="password">
+				</fieldset>
+				<button class="btn" type="submit">Log in</button>
+<button type="button" class="closer" onclick="m1.style.display='none';overlay.classList.add('show');">close</button>
+</form>
+</div>
+
+<div class="mo" id="m2">
+<form class="fm" name="filter" id="f2">
+register
+				<fieldset class="">
+					<label class="rqr" for="i1">Email</label>
+					<input type="email" id="i1" name="email" placeholder="">
+				</fieldset>
+				
+				
+				<fieldset class="modal-contact-line" style="display: flex;">
+					<div class="">
+						<label class="rqr" for="i2">name</label>
+						<input type="text" id="i2" name="name">
+					</div>
+					<div class="">
+						<label for="i3">surname</label>
+						<input type="text" id="i3" name="surname">
+					</div>
+				</fieldset>			
+
+				<fieldset class="modal-contact-line" style="display: flex;">
+					<div class="">
+						<label class="rqr" for="i4">Pass</label>
+						<input type="password" id="i4" name="password">
+					</div>
+					<div class="">
+						<label class="rqr" for="i5">pass2</label>
+						<input type="password" id="i5" name="location">
+					</div>
+				</fieldset>	
+				<fieldset class="modal-contact-line" style="display: flex;">
+					<div class="">
+						<label for="i6">location</label>
+						<input type="text" id="i6" name="age">
+					</div>
+					<div class="">
+						<label class="rqr" class="rqr" for="i7">age</label>
+						<input type="number" id="i7">
+					</div>
+				</fieldset>					
+				
+				<fieldset class="">
+					<input type="checkbox" class="" name="agreement" id="i50">
+					<label class="rqr" for="i50">By clicking on the button, you consent to the processing of your personal data</label>
+				</fieldset>
+				<button class="btn" type="submit">Send</button>
+<button type="button" class="closer"
+onclick="m2.style.display='none';overlay.classList.add('show');">close</button>
+</form>
+</div>
+
+<div class="mo" id="m3">
+<form  class="fm"id="f3">
+send message
+				<fieldset class="modal-contact-line" style="display: flex;">
+					<div class="">
+						<label class="rqr" class="rqr" for="n1">Phone</label>
+						<input type="tel" id="n1" name="tel">
+					</div>
+					<div class="">
+						<label class="rqr" class="rqr" for="n2">Email</label>
+						<input type="email" id="n2" name="email">
+					</div>
+				</fieldset>
+				
+				
+				<fieldset class="modal-contact-line" style="display: flex;">
+					<div class="">
+						<label class="rqr" for="n3">Phone</label>
+						<input type="tel" id="n3" name="tel">
+					</div>
+					<div class="">
+						<label class="rqr" for="n4">Email</label>
+						<input type="email" id="n4" name="email">
+					</div>
+				</fieldset>	
+				<fieldset style="display: flex; flex-direction: column;">	
+					<label class="rqr" for="contact-message">Message</label>
+					<textarea id="contact-message" name="message" cols="30" rows="5" style="resize: none;"></textarea>
+				</fieldset>	
+				<fieldset class="">
+					<input type="checkbox" class="" name="agreement" id="n50">
+					<label class="rqr" for="n50">By clicking on the button, you consent to the processing of your personal data</label>
+				</fieldset>
+				<button class="btn" type="submit">Send</button>
+
+<button type="button" class="closer" onclick="m3.style.display='none';overlay.classList.add('show');">close</button>
+</form>
+</div>
+
+<script>// логин форма
+// Ссылка на бек
+const BASE_SERBER_PATH = 'https://academy.directlinedev.com';
+ 
+  const fl = document.forms.lform;
+  
+  function login(e) {
+    e.preventDefault();
+    let data = {};
+    data.email = lform.email.value;
+    data.password = lform.password.value;
+    sendRequest({
+      method: 'POST',
+      url: '/api/users/login',
+      body: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (res.success) {
+          console.log('Вы успешно вошли!')
+          console.log(res);
+          localStorage.setItem('token', res.data.token);
+          localStorage.setItem('userId', res.data.userId);
+          //rerenderLinks();
+          //interactionModal(modalLogin);
+          setTimeout(() => {
+            location.pathname = '/11/profile';
+          }, 2000)
+        } else {
+          throw res
+        }
+      })
+      .catch(err => {
+        if (err._message) {
+          alert(err._message);
+        }
+		
+        clearErorrs(lform);
+        errorFormHandler(err.errors, lform);//console.log('ups...',err);
+      });
+  }
+  
+  lform.addEventListener('submit', login);
+</script>
+
+
+<script>
+const fi = document.forms.filter;//<form name="registerForm" class="modal__form form-row">
+
+/**/
+
+
+function sendRequest({url, method = 'GET', headers, body = null}) {
+  return fetch(BASE_SERBER_PATH + url + '?v=1.0.0.', {
+    method,
+    headers,
+    body,
+  });
+}
+
+function setErrorChecked(inputs, errorMessage) {
+
+  const error = errorCreator(errorMessage);
+  
+  inputs[0].parentElement.parentElement
+  .insertAdjacentElement('afterend', error);
+  function handler() {
+    error.remove();
+    for(let input of [...inputs]) {
+      input.removeEventListener('input', handler); 
+      input.classList.remove('is-invalid');
+    }
+  }
+  for(let input of [...inputs]) {
+    input.classList.add('is-invalid');
+    
+    input.addEventListener('input', handler, {once: true});
+  }
+}
+
+function setError(input, messageError) {
+//console.log('ups...',messageError);
+
+  if(input[0]) {
+    setErrorChecked(input, messageError);
+  } else {console.log('ups!...',input);
+    setErrorText(input, messageError);
+  }
+}
+
+function setErrorText(input, errorMessage) {
+  const error = errorCreator(errorMessage);
+  input.classList.add('is-invalid');
+  input.insertAdjacentElement('afterend', error);
+  
+  input.addEventListener('input', function() {
+    error.remove();
+    input.classList.remove('is-invalid');
+  }, {once: true});
+  
+}
+
+function errorCreator(message) {
+  let messageError = document.createElement('div');
+  messageError.classList.add('invali');
+  //messageError.classList.add('invalid-feedback');
+  messageError.classList.add('invalid-feedback_js');
+  messageError.innerText = message;
+  return messageError;
+}
+
+function errorFormHandler(errors, form) {
+  if(Object.keys(errors).length) {//console.log('privet');
+    Object.keys(errors).forEach(key => {
+      const messageError = errors[key];
+      const input = form.elements[key];
+	  //console.log('ups...',errors[key]);
+      setError(input, messageError);
+    })
+    return;
+  }
+}
+
+function clearErorrs(element) {
+  const messages = element.querySelectorAll('.invalid-feedback_js');
+  const invalids = element.querySelectorAll('.is-invalid');
+  messages.forEach(message => message.remove());
+  invalids.forEach(invalid => invalid.classList.remove('is-invalid'));
+}
+/**/
+function register(e) {
+  e.preventDefault();
+  //loaderRegister.classList.remove('hidden');
+  let data = {};
+  data.email = fi.email.value;
+  data.name = fi.name.value;//'John';//
+  data.surname = fi.surname.value;//'Smith';//
+  data.password = fi.password.value;//'123';//
+  data.location = fi.location.value;//'ussr';//
+  data.age = +fi.age.value;
+  sendRequest({
+    method: 'POST', 
+    url: '/api/users', 
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  })
+    .then(res => res.json())
+    .then(res => {
+      if(res.success) {
+        //interactionModal(modalRegister); показать скрыть форму
+        alert(`Пользователь c id ${res.data.id} & email ${res.data.email} создан!`);
+        fi.email.value = '';
+        fi.name.value = '';//
+        fi.surname.value = '';//
+        fi.password.value = '';//
+        fi.location.value = '';//
+        fi.age.value = '';
+      } else {
+        throw res;
+      }
+    })
+    .catch(err => {
+      clearErorrs(fi);
+      errorFormHandler(err.errors, fi);
+    })
+    .finally(() => {
+      //loaderRegister.classList.add('hidden');// прелоадер
+    });
+}
+		
+fi.addEventListener('submit', register);
+</script>
+
+<script>
+window.addEventListener('keydown', function(e) {
+    if(e.key === 'Escape') {
+        if(m1.style.display!=='none') {
+            m1.style.display='none';
+            overlay.classList.add('show');
+        }
+        if(m2.style.display!=='none') {
+            m2.style.display='none';
+            overlay.classList.add('show');
+        }		
+        if(m3.style.display!=='none') {
+            m3.style.display='none';
+            overlay.classList.add('show');
+        }		
+    }
+})
+</script>
+
+
+
+</body>
+</html>

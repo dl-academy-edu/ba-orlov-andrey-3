@@ -1,9 +1,16 @@
 // Подключение компонентов
 @import "./header/header";
 @import "./footer/footer";
+$debug: true;
+$color1: red;
+$color2: blue;
+$color3: violet;
+
+*, ::before, ::after {box-sizing: border-box;}
+
 
 body {
-  font-family: Oswald, sans-serif;
+  font-family: Gilroy-Regular, sans-serif;
 }
 
 .container {

@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "Gilroy-Regular";
+  src: local("Gilroy-Regular"),
+		url(./Gilroy-Regular.woff2) format('woff2'),/*современный*/
+		url(./Gilroy-Regular.woff) format('woff'),/* почти современный*/
+		url(./Gilroy-Regular.ttf) format('ttf'),/* для всех кроме IE9.0*/		
+		url(./Gilroy-Regular.eot) format('eot');/*для старых версий Internet Explorer*/
+/* use <p style="font-family: Gilroy-Regular"> */
+}
+@font-face {
+  font-family: "Gilroy-Bold";
+	src: local("Gilroy-Bold"),
+		url(./Gilroy-Bold.woff2) format('woff2'),/*современный*/
+		url(./Gilroy-Bold.woff) format('woff'),/* почти современный*/
+		url(./Gilroy-Bold.ttf) format('ttf'),/* для всех кроме IE9.0*/		
+		url(./Gilroy-Bold.eot) format('eot');/*для старых версий Internet Explorer*/
+/* use <p style="font-family: Gilroy-Bold"> */	
+}
+

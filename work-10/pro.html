@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ru">
+<head> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <link rel="shortcut icon" href="favicon.ico">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="fonts/gilroy.css">
+  <title>My Profile</title>
+  <style>
+/*******modal*********/ 
+.mo {background: blue; padding: 16px;position: fixed; display: none;
+top:50%;left: 50%;transform: translate(-50%, -50%);
+} 
+.fm {position: relative;
+max-width:1000px; min-height: 75px; padding: 20px;
+}
+.closer {position:absolute; top:-13px; right:-55px;}
+  
+.fm:nth-child(3n) {background: teal;}
+.fm:nth-child(3n+1) {background: aqua;}
+.fm:nth-child(3n+2) {background: lime;}
+/**********************************/
+.fs {/*form static*/
+background: navy;
+}
+/*************************/
+.pdiv:nth-child(2n) {background: #def;}
+.pdiv:nth-child(2n+1) {background: #efd;}
+.bold {font-family: "Gilroy-Bold";}
+  </style>
+</head>  
+<body>
+
+<header class="header container">
+<a class="logo" href="./index.html">Home</a>
+<ul class="menu">
+<li class="nav"><a class="link" href="blog.html">My Blog </a></li>
+<li class="nav"><a class="link" href="pro.html">My Profile</a></li>
+</ul>
+</header>
+
+
+<main>
+<section class="container">
+<h1>My Profile</h1>
+</section>
+
+<section class="container" style="display: flex;">
+<div class="pdiv" style="width: 49%; display: flex; align-items: center; justify-content: center;">
+<img src="nophoto.svg" alt="">
+</div>
+<div class="pdiv" style="width: 49%;padding:20px 0 20px 60px;">
+<span class="bold">Name:</span> Oksana<br>
+<span class="bold">Surname:</span> Larioshkina<br>
+<span class="bold">Email:</span> larioshkina@gmail.com<br>
+<span class="bold">Password:</span> *********<br>
+<span class="bold">Location:</span> Tolyatti<br>
+<span class="bold">Age:</span> 23<br>
+<button class="btn" type="button">Change password</button><br>
+<button class="btn" type="button">Change other data</button><br>
+<button class="btn" type="button">Delete account</button>
+
+
+</div>
+</section>
+
+<section>
+
+</section>
+</main>
+<!-- кнопка вверх-->
+<div class="button-to-top_js" id="button-to-top_js"
+style="width:100px; height:100px; background: rgba(0, 127, 0, .2);border-radius: 50%;
+cursor: pointer; display: none;
+position: fixed; bottom:0; right: 0;" onclick="window.scrollTo({top: 0, behavior: 'smooth',})">
+<img src="ar.svg" alt="" width=100px height=100px style="transform: rotate(-90deg);">
+</div>
+<script>
+const button = document.querySelector('.button-to-top_js');
+window.addEventListener('scroll', () => {
+button.style.display=(window.pageYOffset > 100)?'block':'none';
+});
+</script>
+<!-- кнопка вверх-->
+
+
+
+
+<footer class="container2">
+<div class="">
+<center><h2>Contacts</h2>
+<p style="text-align: center;background: #def;">Want to know more or just chat? You are welcome!</p>
+<div style="background: lime; text-align: center;">
+<button class="bt1" type="button" onclick="m3.style.display='block';overlay.classList.remove('show');">Send message</button>
+</div>
+<div style="background: lime;padding: 0 50px;">
+<button class="bt1" type="button">Instagram</button>
+<button class="bt1" type="button">Vk</button>
+<button class="bt1" type="button">Telegram</button>
+<button class="bt1" type="button">Mail</button>
+<button class="bt1" type="button">GitHub</button>
+<button class="bt1" type="button">Phone</button>
+</div>
+</div>
+</footer>
+
+<div class="overlay show" id="overlay"></div>
+<div class="mo" id="m1">
+<form class="fm" id="f1">
+sign in
+<button type="button" onclick="f1.style.display='none';overlay.classList.add('show');">close</button>
+</form>
+</div>
+<div class="mo" id="m2">
+<form class="fm" id="f2">
+register
+<button type="button" onclick="f2.style.display='none';overlay.classList.add('show');">close</button>
+</form>
+</div>
+
+<div class="mo" id="m3">
+<form  class="fm"id="f3">
+send message
+				<fieldset class="modal-contact-line" style="display: flex;">
+					<div class="">
+						<label class="rqr" class="rqr" for="n1">Phone</label>
+						<input type="tel" id="n1" name="tel">
+					</div>
+					<div class="">
+						<label class="rqr" class="rqr" for="n2">Email</label>
+						<input type="email" id="n2" name="email">
+					</div>
+				</fieldset>
+				
+				
+				<fieldset class="modal-contact-line" style="display: flex;">
+					<div class="">
+						<label class="rqr" for="n3">Phone</label>
+						<input type="tel" id="n3" name="tel">
+					</div>
+					<div class="">
+						<label class="rqr" for="n4">Email</label>
+						<input type="email" id="n4" name="email">
+					</div>
+				</fieldset>	
+				<fieldset style="display: flex; flex-direction: column;">	
+					<label class="rqr" for="contact-message">Message</label>
+					<textarea id="contact-message" name="message" cols="30" rows="5" style="resize: none;"></textarea>
+				</fieldset>	
+				<fieldset class="">
+					<input type="checkbox" class="" name="agreement" id="n50">
+					<label class="rqr" for="n50">By clicking on the button, you consent to the processing of your personal data</label>
+				</fieldset>
+				<button class="btn" type="submit">Send</button>
+
+<button type="button" class="closer" onclick="m3.style.display='none';overlay.classList.add('show');">close</button>
+</form>
+</div>
+<script>
+window.addEventListener('keydown', function(e) {
+    if(e.key === 'Escape') {
+        if(m1.style.display!=='none') {
+            m1.style.display='none';
+            overlay.classList.add('show');
+        }
+        if(m2.style.display!=='none') {
+            m2.style.display='none';
+            overlay.classList.add('show');
+        }		
+        if(m3.style.display!=='none') {
+            m3.style.display='none';
+            overlay.classList.add('show');
+        }		
+    }
+})
+</script>
+</body>
+</html>
