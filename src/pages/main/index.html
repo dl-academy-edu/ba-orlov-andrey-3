@@ -1,46 +1,196 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-    />
-    <link href="/common.css" rel="stylesheet" />
-    <link href="style.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/static/fonts/gilroy.css" />
-    <link rel="shortcut icon" href="/static/images/favicon.ico">
-    <title>Главная</title>
-  </head>
-  <body>
-    @@include('header/index.html')
-    <main class="index-main">
-      <div class="container">
-        <h1 class="title-block title-block_one">Главная</h1>
-        <h1 class="title-block title-block_one" style ="font-family: Gilroy-Bold">Главная</h1>
-        <h1 class="title-block title-block_one" style ="font-family: Gilroy-Regular">Главная</h1>
-        <h2 class="title-block title-block_two">
-          Вы находитесь на главной странице
-        </h2>
-        <div class="parallax-card">
-          <div class="parallax-card__wrapper-img">
-            <img
-              class="parallax-card__img"
-              src="static/images/cactus.jpg"
-              alt="Картинка кактуса"
-            />
-          </div>
+<head> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <link rel="shortcut icon" href="favicon.ico">
+	<link rel="shortcut icon" href="/static/images/favicon.ico">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="/styles.css">
+	<link rel="stylesheet" href="/common.css">
+  <link rel="stylesheet" href="fonts/gilroy.css">
+  <link rel="stylesheet" href="/static/fonts/gilroy.css">
+  <title>message</title>
+  <style>  
+  
+  h2 {line-height: 155px;}
+	fieldset {border: none;}
+  
+  .container {width:100%;max-width:1040px;margin: 0 auto;padding:0 20px;background:pink;}
+  .port {display: flex;flex-direction:column;align-items: center;padding-bottom:60px;background:olive;}
+  .port__sly {position:relative; display: block;overflow:hidden;height:555px;background:violet;}
+  .port__img {width:999px; height: 2554px;}
 
-          <div class="parallax-card__description">
-            <p class="parallax-card__paragraph">Кактус маминой подруги</p>
-            <p class="parallax-card__paragraph">
-              Не нужно поливать и никогда не сохнет
-            </p>
-          </div>
-        </div>
-      </div>
-    </main>
-    @@include('footer/index.html')
-    <script src="scripts.js"></script>
-  </body>
+
+ 
+.mo {position: fixed; padding: 0px; display:none;
+	top:50%; left: 50%;transform: translate(-50%, -50%);
+	} 
+
+.closer {position: absolute; top:-5px; right:-38px;width: 25px; height: 25px;border:none;background: transparent; 
+	cursor: pointer;opacity:.5;}
+.closer:hover {opacity:1;}		
+		
+/**/
+.reg {position: relative;max-width:1000px; min-height: 75px; padding: 40px;background:#ffffff;border:2.5px solid #070707;}
+.reg__fs1 {display: flex;flex-direction: column;padding-bottom: 15px;}
+.reg__fs2 {display: flex;flex-wrap:wrap;justify-content:space-between;width:600px;padding-bottom:15px;}
+.reg__small {width:290px;}
+.reg__lbl1 {font-family:g700;font-size:14px;color: #070707;line-height: 30px;}
+.reg__lbl2 {font-family:g700;font-size:14px;line-height:28px;color: #070707;}
+
+.reg__edit1 {border: 2.5px solid #e5e5e5;padding: 13px 19px;font-family:g500; font-size:18px;}
+.reg__edit2 {border: 2.5px solid #e5e5e5;padding: 13px 19px;font-family:g500; font-size:18px; background: #ffffff;width:100%;}
+.reg__txt   {border: 2.5px solid #e5e5e5;padding: 13px 19px;font-family:g500; font-size:18px;resize: none;}
+.reg__edit1:hover, .reg__edit2:hover, .reg__txt:hover {border-color: #828282;}
+		
+		/* */
+		
+		
+		/*  */
+.mo {background: #def;}		
+		
+  </style>
+</head>  
+<body>
+<section class="port">
+<h2> 
+<span style="cursor:pointer; text-decoration: underline;" onclick="m2.style.display='block';overlay.classList.remove('unshow');">Register</span> 
+<span style="cursor:pointer; text-decoration: underline;" onclick="m3.style.display='block';overlay.classList.remove('unshow');">Send message</span> 
+</h2>
+<div class="port__sly container">
+  <img class="port__img" src="/static/images/m.jpg" alt="">
+</div>
+</section>
+<div class="overlay unshow" id="overlay"></div>
+<div class="mo" id="m2">
+<form class="reg" name="filter" id="f2">
+				<fieldset class="reg__fs1">
+					<label class="reg__lbl1 rqr" for="i1" >Email </label>
+					<input class="reg__edit1" type="email" id="i1" name="email" placeholder="" >
+				</fieldset>
+				
+				
+				<fieldset class="reg__fs2">
+					<div class="reg__small">
+						<label class="reg__lbl2 rqr" for="i2" >Name </label>
+						<input class="reg__edit2" type="text" id="i2" name="name" >
+					</div>
+					<div class="reg__small" >
+						<label class="reg__lbl2 rqr" for="i3" >Surname </label>
+						<input class="reg__edit2" type="text" id="i3" name="surname" >
+					</div>
+				</fieldset>			
+
+				<fieldset class="reg__fs2" >
+					<div class="reg__small">
+						<label class="reg__lbl2 rqr" for="i4">Password </label>
+						<input class="reg__edit2" type="password" id="i4" name="password">
+					</div>
+					<div class="reg__small">
+						<label class="reg__lbl2 rqr" for="i5">Repeat password </label>
+						<input class="reg__edit2" type="password" id="i5" name="location">
+					</div>
+				</fieldset>	
+				<fieldset class="reg__fs2" >
+					<div class="reg__small">
+						<label class="reg__lbl2 rqr" for="i6">Location </label>
+						<input class="reg__edit2"type="text" id="i6" name="age">
+					</div>
+					<div class="reg__small">
+						<label class="reg__lbl2 rqr" for="i7">Age </label>
+						<input class="reg__edit2" type="number" id="i7">
+					</div>
+				</fieldset>					
+				
+				
+				
+				
+				<fieldset class="reg__fs1">
+					<input class="mod-ch" type="checkbox" name="agreement" id="i50">
+					<label class="mod-ch-lbl" for="i50" >
+					Clicking on the button, you consent to the processing of your personal data.</label>
+				</fieldset>
+				<button class="btn btn2 taboo" type="submit">Send</button>
+<button class="closer" type="reset" onclick="m2.style.display='none';overlay.classList.add('unshow');">
+	<svg class="svg25" viewBox="0 0 15 15" fill="none">
+	<path class="stick" d="M1.5 1.5 13.5 13.5" />
+	<path class="stick" d="M1.5 13.5 13.5 1.5" />
+	</svg>
+</button>
+</form>
+</div>
+
+<!-- form message-->
+<div class="mo" id="m3">
+<form class="reg" id="f3">
+<!-- send message -->
+				<fieldset class="reg__fs2">
+					<div class="reg__small">
+						<label class="reg__lbl2 rqr" class="rqr" for="n1">What is your name? </label>
+						<input class="reg__edit2" type="tel" id="n1" name="tel">
+					</div>
+					<div class="reg__small">
+						<label class="reg__lbl2 rqr" class="rqr" for="n2">Message subject </label>
+						<input class="reg__edit2" type="email" id="n2" name="email">
+					</div>
+				</fieldset>
+
+				
+				
+				<fieldset class="reg__fs2" style="display: flex;">
+					<div class="reg__small">
+						<label class="reg__lbl2 rqr" for="n3">Your Email </label>
+						<input class="reg__edit2" type="tel" id="n3" name="tel">
+					</div>
+					<div class="reg__small">
+						<label class="reg__lbl2 rqr" for="n4">Your mobile phone </label>
+						<input class="reg__edit2" type="email" id="n4" name="email">
+					</div>
+				</fieldset>	
+
+
+
+				
+				<fieldset class="reg__fs1" style="display: flex; flex-direction: column;">	
+					<label class="reg__lbl1" for="contact-message">What do you want to discuss with me?</label>
+					<textarea class="reg__txt" id="contact-message" name="message" cols="30" rows="5" ></textarea>
+				</fieldset>	
+				
+				<fieldset class="reg__fs1">
+					<input class="mod-ch" type="checkbox" name="agreement" id="n50">
+					<label class="mod-ch-lbl" for="n50">Clicking on the button, you consent to the processing of your personal data.</label>
+				</fieldset>
+				
+	<button class="btn btn2" type="submit">Send</button>
+<!-- <button type="button" class="closer" onclick="m3.style.display='none';overlay.classList.add('unshow');">close</button> -->
+	<button class="closer" type="reset" onclick="m3.style.display='none';overlay.classList.add('unshow');">
+		<svg class="svg25" viewBox="0 0 15 15" fill="none">
+		<path class="stick" d="M1.5 1.5 13.5 13.5" />
+		<path class="stick" d="M1.5 13.5 13.5 1.5" />
+		</svg>
+	</button>
+</form>
+</div>
+
+
+<script>
+const m1=document.getElementById('m1');
+const m2=document.getElementById('m2');
+const m3=document.getElementById('m3');
+window.addEventListener('keydown', function(e) {
+    if(e.key === 'Escape') {
+        if(m1 && m1.style.display!=='none') // log in sicn in
+			m1.querySelector('.closer').click(); // клик по первому найденному с классом closer        
+        if(m2 && m2.style.display!=='none') 
+			m2.querySelector('.closer').click(); // клик по первому найденному с классом closer		
+        if(m3 && m3.style.display!=='none') 
+			m3.querySelector('.closer').click(); // клик по первому найденному с классом closer        	
+			
+    }
+})
+</script>
+</body>
 </html>
