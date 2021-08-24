@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="ru">
+<head> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <link rel="shortcut icon" href="favicon.ico">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="fonts/gilroy.css">
+  <title>My Profile</title>
+  <style>
+/*******modal*********/ 
+.mo {background: blue; padding: 16px;position: fixed;display: none;
+top:50%;left: 50%;transform: translate(-50%, -50%);
+} 
+.fm {position: relative; /*form modal*/
+max-width:1000px; min-height: 75px; padding: 20px;
+}
+.closer {position:absolute; top:-13px; right:-55px;}
+  
+.fm:nth-child(3n) {background: teal;}
+.fm:nth-child(3n+1) {background: aqua;}
+.fm:nth-child(3n+2) {background: lime;}
+/**********************************/
+.fs {/*form static*/
+background: navy;
+}
+/*******************/
+.fdiv {display: flex; flex-direction: column;}
+.fdiv:nth-child(2n) {background: #def;}
+.fdiv:nth-child(2n+1) {background: #edf;}
+
+.c1 {margin:0 3px;}
+  </style>
+</head>  
+<body>
+
+<header class="header container">
+<a class="logo" href="./index.html">Home</a>
+<ul class="menu">
+<li class="nav"><a class="link" href="blog.html">My Blog </a></li>
+<li class="nav"><a class="link" href="pro.html">My Profile</a></li>
+</ul>
+</header>
+
+<main>
+<section class="container">
+<h1>My Blog</h1>
+<form class="fs">
+<fieldset style="display: flex; height: 100px;">
+<div class="fdiv col-2"><span>Tags</span>
+	<div class="tags_js" style="background: aqua;width:80px;height: 40px;display: flex; flex-wrap: wrap;">
+	<input type="checkbox" class="c1" name="c1" id="c01">
+	<label for="c01"></label>
+	<input type="checkbox" class="c1" name="c1" id="c02">
+	<label for="c02"></label>
+	<input type="checkbox" class="c1" name="c1" id="c03">
+	<label for="c03"></label>
+	<input type="checkbox" class="c1" name="c1" id="c04">
+	<label for="c04"></label>
+	<input type="checkbox" class="c1" name="c1" id="c05">
+	<label for="c05"></label>
+	<input type="checkbox" class="c1" name="c1" id="c06">
+	<label for="c06"></label>
+	<input type="checkbox" class="c1" name="c1" id="c07">
+	<label for="c07"></label>
+	<input type="checkbox" class="c1" name="c1" id="c08">
+	<label for="c08"></label>
+	</div>
+</div>
+<div class="fdiv col-2"><span>Views</span>
+	<input type="radio" class="" name="c2" id="c2first">
+	<label for="c2first"></label>
+	<input type="radio" class="" name="c2" id="c2second">
+	<label for="c2second"></label>
+	<input type="radio" class="" name="c2" id="c2third">
+	<label for="c2third"></label>
+</div>
+<div class="fdiv col-2"><span>Comments</span>
+	<input type="checkbox" class="" name="c3" id="c3first">
+	<label for="c3first"></label>
+	<input type="checkbox" class="" name="c3" id="c3second">
+	<label for="c3second"></label>
+	<input type="checkbox" class="" name="c3" id="c3third">
+	<label for="c3third"></label>
+</div>
+<div class="fdiv col-2">
+	<span>How show?</span>
+	<input type="radio" class="" name="c4" id="c4first">
+	<label for="c4first"></label>
+	<input type="radio" class="" name="c4" id="c4second">
+	<label for="c4second"></label>
+</div>
+<div class="fdiv col-2"><span>Sort By</span>
+	<input type="radio" class="" name="c5" id="c5first">
+	<label for="c5first"></label>
+	<input type="radio" class="" name="c5" id="c5second">
+	<label for="c5second"></label>
+	<input type="radio" class="" name="c5" id="c5third">
+	<label for="c5third"></label>
+</div>
+<div class="fdiv col-2"><button type="reset">Reset</button></div>
+</fieldset>
+<input class="" type="text" value="" style="width:80%">
+<button class="" type="button">Search</button>
+</form>
+</section>
+
+<section class="container atik result_js">
+
+</section>
+
+<section class="container" style="display: flex; justify-content: space-between; align-items: center; background: #fed;">
+	<button class="back" style="border-radius: 50%;" aria-label="недивы чтоб доступность цеплялась">
+	<img src="ar.svg" alt="" width=30px height=30px style="transform: rotate(180deg);">
+	</button>
+	<div class="pgn"></div>
+	<button class="next" style="border-radius: 50%;">
+	<img src="ar.svg" alt="" width=30px height=30px style="transform: rotate(0deg);">
+	</button>
+</section>
+</main>
+<!-- /статьи пагинация-->
+<script>
+  const SERVER_URL = 'https://academy.directlinedev.com';
+  let xhr = new XMLHttpRequest();
+  let n = new URLSearchParams();
+  n.set('v', '1.0.0');
+  n.set('filter', JSON.stringify({title:'m'}));
+  n.set('limit', 5);
+  xhr.open('GET', SERVER_URL + '/api/posts?'+  n.toString());
+  xhr.send();
+  xhr.onload = () => {
+	const response = JSON.parse(xhr.response);
+    let dataPosts = '';	
+    response.data.forEach(post => {
+      dataPosts += cardCreate({
+        src: post.photo.desktopPhotoUrl, 
+      });
+	  });
+	 
+	const result = document.querySelector('.result_js');
+    result.innerHTML += dataPosts;  
+  };  
+  
+  function cardCreate({src}) {
+	return `<img src="${SERVER_URL}${src}"  alt=""><br>`
+}
+</script>
+<!-- -->
+
+<!-- кнопка вверх-->
+<div class="button-to-top_js" id="button-to-top_js"
+style="width:100px; height:100px; background: rgba(0, 127, 0, .2);border-radius: 50%;
+cursor: pointer; display: none;
+position: fixed; bottom:0; right: 0;" onclick="window.scrollTo({top: 0, behavior: 'smooth',})">
+<img src="ar.svg" alt="" width=100px height=100px style="transform: rotate(-90deg);">
+</div>
+<script>
+const button = document.querySelector('.button-to-top_js');
+window.addEventListener('scroll', () => {
+button.style.display=(window.pageYOffset > 100)?'block':'none';
+});
+</script>
+<!-- кнопка вверх-->
+
+<footer class="container2">
+<div class="">
+<center><h2>Contacts</h2>
+<p style="text-align: center;background: #def;">Want to know more or just chat? You are welcome!</p>
+<div style="background: lime; text-align: center;">
+<button class="bt1" type="button" onclick="m3.style.display='block';overlay.classList.remove('show');">Send message</button>
+</div>
+<div style="background: lime;padding: 0 50px;">
+<button class="bt1" type="button">Instagram</button>
+<button class="bt1" type="button">Vk</button>
+<button class="bt1" type="button">Telegram</button>
+<button class="bt1" type="button">Mail</button>
+<button class="bt1" type="button">GitHub</button>
+<button class="bt1" type="button">Phone</button>
+</div>
+</div>
+</footer>
+
+
+<div class="overlay show" id="overlay"></div>
+<div class="mo" id="m1">
+<form class="fm" id="f1">
+sign in
+<button type="button" onclick="f1.style.display='none';overlay.classList.add('show');">close</button>
+</form>
+</div>
+<div class="mo" id="m2">
+<form class="fm" id="f2">
+register
+<button type="button" onclick="f2.style.display='none';overlay.classList.add('show');">close</button>
+</form>
+</div>
+
+<div class="mo" id="m3">
+<form  class="fm"id="f3">
+send message
+				<fieldset class="modal-contact-line" style="display: flex;">
+					<div class="">
+						<label class="rqr" class="rqr" for="n1">Phone</label>
+						<input type="tel" id="n1" name="tel">
+					</div>
+					<div class="">
+						<label class="rqr" class="rqr" for="n2">Email</label>
+						<input type="email" id="n2" name="email">
+					</div>
+				</fieldset>
+				
+				
+				<fieldset class="modal-contact-line" style="display: flex;">
+					<div class="">
+						<label class="rqr" for="n3">Phone</label>
+						<input type="tel" id="n3" name="tel">
+					</div>
+					<div class="">
+						<label class="rqr" for="n4">Email</label>
+						<input type="email" id="n4" name="email">
+					</div>
+				</fieldset>	
+				<fieldset style="display: flex; flex-direction: column;">	
+					<label class="rqr" for="contact-message">Message</label>
+					<textarea id="contact-message" name="message" cols="30" rows="5" style="resize: none;"></textarea>
+				</fieldset>	
+				<fieldset class="">
+					<input type="checkbox" class="" name="agreement" id="n50">
+					<label class="rqr" for="n50">By clicking on the button, you consent to the processing of your personal data</label>
+				</fieldset>
+				<button class="btn" type="submit">Send</button>
+
+<button type="button" class="closer" onclick="m3.style.display='none';overlay.classList.add('show');">close</button>
+</form>
+</div>
+<script>
+window.addEventListener('keydown', function(e) {
+    if(e.key === 'Escape') {
+        if(m1.style.display!=='none') {
+            m1.style.display='none';
+            overlay.classList.add('show');
+        }
+        if(m2.style.display!=='none') {
+            m2.style.display='none';
+            overlay.classList.add('show');
+        }		
+        if(m3.style.display!=='none') {
+            m3.style.display='none';
+            overlay.classList.add('show');
+        }		
+    }
+})
+</script>
+</body>
+</html>
